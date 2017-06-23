@@ -1,0 +1,15 @@
+<h2> Search </h2>
+
+<!--            v app.get     v connects to route app.get("/results") -->
+<form method="get" action="/results">
+  <label for="search-term-input"> Search the Web </label>
+  <input type="search" id="search-term-input" name="searchTerm">
+  <br>
+
+  <input id="interest-box" type="checkbox" name="interestThing">
+  <label for="interest-box"> Interested in Pizza? </label>
+  <br>
+
+  <button> Search NOW! </button>
+  <!-- or <input type="submit" value="Search NOW!"> -->
+</form>
