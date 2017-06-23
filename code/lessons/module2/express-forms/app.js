@@ -24,6 +24,12 @@ app.use(expressLayouts);
 app.set("layout", "layout.ejs");
 
 
+// Body-parser stuff v
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.urlencoded({ extended: true}));
+
+
 
 // ROUTES  |
 //         V
@@ -33,7 +39,7 @@ app.get("/", (req, res, next) => {
 });
 
 
- //         search form stuff starts here:
+ //     Search Form stuff starts here:
 app.get("/search", (req, res, next) => {
   res.render("search-form-view.ejs");
 });
@@ -54,6 +60,26 @@ app.get("/results", (req, res, next) => {
     theSearch: myTerm
   });
 }
+});
+
+
+//      Login Form starts here
+app.get("/login", (req, res, next) => {
+  res.render("login-form-view.ejs");
+});
+
+//            step 2 of login-form
+app.post("/check-login", (req, res, next) => {
+  const userEmail = req.body.emailValue;
+  const userPass = req.body.passwordValue;
+
+  if (userEmail === "a@a.a" && userPass === "swordfish") {
+    res.render("welcome-view.ejs");
+  }
+  else {
+    res.render("go-away-view.ejs");
+  }
+  res.render("go-away-view.ejs");
 });
 
 
